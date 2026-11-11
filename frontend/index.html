@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AuthenTech</title>
+  <meta name="description" content="Detect AI-generated images, videos and text.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AuthenTech — Real or rendered?">
+  <meta property="og:description" content="Detect AI-generated images, videos and text with two open-source models per type.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0z' fill='%23fff'/%3E%3Cpath d='M24 0v24H0z' fill='%2376b900'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=6">
+</head>
+<body>
+
+  <!-- Custom scroll rail (native scrollbar is hidden) -->
+  <div class="rail" id="rail" aria-hidden="true">
+    <div class="rail-track"></div>
+    <div class="rail-thumb" id="thumb"><i id="pct">00</i></div>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav">
+    <a class="logo" href="#top" aria-label="AuthenTech home">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M0 0h24v24H0z" fill="#fff"/><path d="M24 0v24H0z" fill="#76b900"/></svg>
+      <span>AUTHEN<b>TECH</b></span>
+    </a>
+    <nav>
+      <a href="#detect">Scan</a>
+      <a href="#how">How it works</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO: split compare -->
+    <section class="hero-wrap" id="heroWrap">
+      <div class="hero">
+        <div class="stage" id="stage" style="--x:50%; --p:0">
+          <img class="pic pic-ai" src="assets/ai.webp" alt="AI-generated version of a white Mazda RX-7 photo" draggable="false">
+          <img class="pic pic-real" src="assets/authentic.webp" alt="Authentic photo of a white Mazda RX-7" draggable="false">
+          <div class="shade"></div>
+
+          <div class="hud hud-tl"><span>DEEPFAKE DETECTION ENGINE</span></div>
+
+          <div class="title" id="title">
+            <h1 class="t t-w">Real.<br>Or rendered?</h1>
+            <div class="t t-g" aria-hidden="true">Real.<br>Or rendered?</div>
+          </div>
+          <p class="caption">Spot the fake? <span>Test what&rsquo;s authentic</span></p>
+
+          <div class="tag tag-real" id="tagR"><small>// CAPTURED</small><b>AUTHENTIC</b><em>Real photograph</em></div>
+          <div class="tag tag-ai" id="tagA"><small>// SYNTHESIZED</small><b>AI GENERATED</b><em>Rendered by a model</em></div>
+
+          <div class="divider" id="divider">
+            <div class="grip" aria-hidden="true"><span>&#9664;</span><span>&#9654;</span></div>
+          </div>
+
+          <a class="cue" href="#detect"><span>SCROLL</span><i></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ticker -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-skew" id="mskew">
+        <div class="marquee-track">
+          <span>IMAGE</span><b>///</b><span>VIDEO</span><b>///</b><span>TEXT</span><b>///</b><span>3 MODES</span><b>///</b><span>ONE VERDICT</span><b>///</b>
+          <span>IMAGE</span><b>///</b><span>VIDEO</span><b>///</b><span>TEXT</span><b>///</b><span>3 MODES</span><b>///</b><span>ONE VERDICT</span><b>///</b>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETECT -->
+    <section class="detect" id="detect">
+      <div class="bigword" id="bigword" aria-hidden="true">SCAN</div>
+      <div class="wrap">
+        <p class="eyebrow rv" data-scramble>// 01 — CHOOSE YOUR SCAN</p>
+        <h2 class="sec-title compact rv">What do you want <em>to verify?</em></h2>
+
+        <div class="acc" id="acc">
+
+          <article class="slab rv" data-mode="image" tabindex="0" role="button" aria-expanded="false" aria-label="Scan an image">
+            <div class="slab-in"></div>
+            <div class="slab-idle">
+              <span class="num">01</span>
+              <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 12h52v40H6z"/><path d="M6 44l16-16 12 12 8-8 16 16"/><circle cx="44" cy="24" r="4"/></svg>
+              <h3>IMAGE</h3>
+              <p>Photos, art, portraits</p>
+              <span class="go">SCAN <i>&rarr;</i></span>
+            </div>
+            <div class="slab-panel"></div>
+          </article>
+
+          <article class="slab rv" data-mode="video" tabindex="0" role="button" aria-expanded="false" aria-label="Scan a video">
+            <div class="slab-in"></div>
+            <div class="slab-idle">
+              <span class="num">02</span>
+              <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 12h52v40H6z"/><path d="M26 22l16 10-16 10z"/><path d="M6 20h52M6 44h52" stroke-dasharray="3 5"/></svg>
+              <h3>VIDEO</h3>
+              <p>Clips up to 1 minute</p>
+              <span class="go">SCAN <i>&rarr;</i></span>
+            </div>
+            <div class="slab-panel"></div>
+          </article>
+
+          <article class="slab rv" data-mode="text" tabindex="0" role="button" aria-expanded="false" aria-label="Scan text">
+            <div class="slab-in"></div>
+            <div class="slab-idle">
+              <span class="num">03</span>
+              <svg class="ico" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 14h48M32 14v36M22 50h20"/><path d="M8 26h12M44 26h12" stroke-dasharray="3 4"/></svg>
+              <h3>TEXT</h3>
+              <p>Essays, posts, messages</p>
+              <span class="go">SCAN <i>&rarr;</i></span>
+            </div>
+            <div class="slab-panel"></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="how" id="how">
+      <div class="wrap">
+        <p class="eyebrow rv" data-scramble>// 02 — HOW IT SEES</p>
+        <h2 class="sec-title rv">Two models.<br><em>One verdict.</em></h2>
+        <ol class="steps" id="steps">
+          <li class="rv"><span class="n">01</span><div><h4>You upload</h4><p>An image, a short video or a block of text. Nothing is stored: it is analyzed and deleted.</p></div></li>
+          <li class="rv"><span class="n">02</span><div><h4>Two detectors scan it</h4><p>Independent open-source models each estimate how likely it is to be AI. Video is sampled frame by frame.</p></div></li>
+          <li class="rv"><span class="n">03</span><div><h4>Scores are fused</h4><p>The estimates are calibrated and averaged into one verdict and a confidence score.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap">
+        <span>AUTHEN<b>TECH</b></span>
+        <p>Results are probabilistic estimates, not proof. Detectors can be wrong, especially on short text, edited media and newer AI models. Never use a single result to accuse anyone.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Shared scan panel: moved into whichever slab is open -->
+  <div id="stash" hidden>
+    <div class="panel" id="panel">
+      <canvas class="flow" id="flow" aria-hidden="true"></canvas>
+
+      <div class="p-head">
+        <div>
+          <p class="p-kicker" id="pKicker">// SCAN MODE</p>
+          <h3 class="p-title" id="pTitle">IMAGE SCAN</h3>
+        </div>
+        <button class="p-close" id="pClose" type="button" aria-label="Close scan panel">&times;</button>
+      </div>
+
+      <div class="p-body" id="pBody">
+        <div id="uploadBox" hidden>
+          <label class="drop" id="drop">
+            <input type="file" id="file" hidden>
+            <span class="drop-ico" id="dropIco"></span>
+            <strong id="dropText"></strong>
+            <small id="dropHint"></small>
+          </label>
+          <div class="preview" id="preview" hidden></div>
+        </div>
+
+        <div id="textBox" hidden>
+          <div class="tarea">
+            <textarea id="text" rows="9" placeholder="Paste or type the text here (at least 30 words)…"></textarea>
+            <div class="tscan"></div>
+          </div>
+          <div class="count" id="count">0 words</div>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="analyze" type="button" disabled><span>Analyze</span></button>
+        </div>
+      </div>
+
+      <div class="log" id="log" aria-live="polite" hidden></div>
+      <div class="error" id="error" role="alert" hidden></div>
+
+      <div class="result" id="result" hidden>
+        <p class="r-kicker">// VERDICT</p>
+        <div class="r-verdict" id="rVerdict"></div>
+        <div class="r-conf"><b id="rConf">0</b><span>% confidence</span></div>
+        <div class="seg" id="seg" aria-hidden="true"></div>
+        <div class="r-rows" id="rRows"></div>
+        <p class="r-note" id="rNote"></p>
+        <button class="btn ghost" id="again" type="button"><span>Scan another</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="app.js?v=9"></script>
+</body>
+</html>

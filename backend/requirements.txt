@@ -1,0 +1,10 @@
+﻿fastapi
+uvicorn[standard]
+python-multipart
+transformers>=5.4
+pillow
+opencv-python-headless
+numpy
+huggingface_hub>=1.0
+safetensors
+sentencepiece
