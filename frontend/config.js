@@ -6,4 +6,4 @@
 //
 // A free quick tunnel receives a new address on every start, so the value is updated after each restart
 // (no trailing slash), then committed and pushed. See docs/DEPLOY.md.
-window.AUTHENTECH_API = "";
+window.AUTHENTECH_API = "https://minds-remedy-aurora-jenny.trycloudflare.com";
